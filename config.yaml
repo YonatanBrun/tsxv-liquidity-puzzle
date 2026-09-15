@@ -1,0 +1,63 @@
+# ============================================================================
+# TSXV Liquidity Discount study — all locked parameters live here.
+# Nothing downstream hard-codes a knob. Change it here, re-run, done.
+# ============================================================================
+
+# --- Sample window -----------------------------------------------------------
+# Price history is pulled from `data_start` so the first formation date has a
+# full 12-month trailing window. Portfolio formation happens only within
+# [formation_start, formation_end]; the forward-return horizon then determines
+# the last usable formation date per horizon (see analysis.py).
+data_start:        "2015-01-01"
+formation_start:   "2016-01-31"
+formation_end:     "2024-12-31"
+window_end:        "2024-12-31"   # last date any forward return may reference
+
+# --- Formation schedule ----------------------------------------------------
+formation_frequency: "M"          # month-end. Overlapping fwd windows -> Newey-West.
+forward_horizons_months: [6, 12, 24]
+
+# --- Illiquidity measurement ---------------------------------------------------
+trailing_months: 12               # look-back for ILLIQ / zero-return / Corwin-Schultz
+min_trailing_days: 126            # >= ~6 months of real observations to score a name
+amihud_scale: 1.0e6               # multiply mean(|ret|/dollar_vol) by this
+# Corwin-Schultz: clamp negative 2-day spread estimates to 0 (standard practice).
+cs_clamp_negative: true
+
+# --- Universe cleaning -------------------------------------------------------
+# Instrument suffixes to drop from the TSXV directory (non-common / non-operating):
+#   .P  = Capital Pool Companies (shells)   .WT/.WT.A/.WT.B = warrants
+#   .UN = trust/fund units   .PR.A = preferred   .DB = debentures   .U = USD line
+drop_suffixes: ["P", "WT", "UN", "PR", "DB", "U", "RT", "NT"]
+require_exchange: "TSXV"          # GraphQL exShortName must equal this
+sample_size: null                 # null = full cleaned universe; int = stratified subsample
+sample_seed: 20260907
+
+# --- Size control ----------------------------------------------------------
+# Shares outstanding is CURRENT (TMX GraphQL), applied to every formation date.
+# This is an approximation for a diluting junior; disclosed as a limitation.
+# Robustness: analysis also reports log(price) as an alternative size proxy.
+size_var: "log_mktcap_current_so"
+
+# --- Returns / outliers ----------------------------------------------------
+winsorize_pct: [0.01, 0.99]       # applied to forward EXCESS returns, per formation x horizon
+return_type: "total"              # close-to-close on split-adjusted series (juniors ~never pay divs)
+
+# --- Holdout -------------------------------------------------------------------
+holdout_fraction: 0.30            # 30% of TICKERS held out, untouched until the end
+holdout_seed: 424242
+holdout_lock_file: "data/holdout.json"   # written once; pipeline refuses to overwrite
+
+# --- Benchmark ------------------------------------------------------------------
+benchmark_symbol_yahoo: "^SPCDNX"     # S&P/TSX Venture Composite, from Yahoo Finance
+
+# --- Data sources ------------------------------------------------------------
+price_source_primary: "yfinance"      # raw OHLCV + adj close + splits, one call, free
+price_source_crosscheck: "alphavantage"  # TIME_SERIES_DAILY, sample cross-check only
+crosscheck_sample_n: 25               # random names to pull from AV for reconciliation
+yf_pause_seconds: 0.20
+tmx_pause_seconds: 0.15
+
+# --- Regression -----------------------------------------------------------------
+newey_west_lags: null             # null -> auto = (horizon_months - 1) per horizon
+sector_dummies: true

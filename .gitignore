@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+logs/*.log
+data/raw/*.parquet
+data/adjusted/*.parquet
+data/benchmark/*.parquet
+# keep: universe csvs, holdout.json, outputs/
+!data/holdout.json
