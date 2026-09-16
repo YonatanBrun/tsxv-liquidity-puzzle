@@ -201,7 +201,7 @@ t.paragraph_format.space_after = Pt(4)
 
 para(doc, "What I found testing 1,127 Canadian micro-cap stocks, and why the answer "
      "changed depending on how I asked the question", align="c", italic=True, size=12.5)
-para(doc, "By [Your name]  ·  September 2026", align="c", size=10.5)
+para(doc, "By Yonatan Brunshtein  ·  The Venture Analyst  ·  September 2026", align="c", size=10.5)
 para(doc, "This is the plain-English version of a longer, more technical research paper. "
      "Every number in this piece comes straight from that paper's data — nothing is "
      "rounded differently or simplified away, only explained.", align="c", italic=True, size=9.5)

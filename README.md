@@ -83,7 +83,7 @@ Every parameter — the sample window, the illiquidity formulas, the holdout see
 
 If you reference this work:
 
-> [Author name]. "The TSX Venture Liquidity Puzzle: When Illiquidity Pays and When It Doesn't." Working paper, September 2026.
+> Brunshtein, Yonatan. "The TSX Venture Liquidity Puzzle: When Illiquidity Pays and When It Doesn't." Working paper, September 2026.
 
 ## AI disclosure
 

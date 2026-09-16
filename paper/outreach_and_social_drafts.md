@@ -83,7 +83,7 @@ Paper (plain-English edition) and full reproducible code: [link]
 No pressure for a long response — even a one-line reaction to where you think this is weakest would be genuinely useful before I post it more publicly.
 
 Thanks,
-[Your name]
+Yonatan Brunshtein
 The Venture Analyst
 
 ---

@@ -150,7 +150,8 @@ t.paragraph_format.space_after = Pt(6)
 
 para(doc, "A pre-registered test of the illiquidity–return relation on the "
      "S&P/TSX Venture Composite universe, 2016–2024", align="c", italic=True, size=11)
-para(doc, "[Author name]  ·  [Affiliation]  ·  September 2026", align="c", size=10)
+para(doc, "Yonatan Brunshtein  ·  The Venture Analyst — Independent Researcher  ·  September 2026",
+     align="c", size=10)
 para(doc, "Working paper — comments welcome. Code and data pipeline available on request.",
      align="c", italic=True, size=9)
 doc.add_paragraph()
