@@ -1,6 +1,6 @@
 # TSXV Liquidity Puzzle — findings (v2, run 2026-09-08)
 
-Full write-up: **`paper/TSXV_Liquidity_Puzzle.docx`** (~22 pp, 7 figures, 6 tables).
+Full write-up: **`paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx`**.
 This file is the executive summary.
 
 ## Setup
@@ -81,4 +81,4 @@ not a trading-cost proxy.
 
 `./.venv/bin/python run_all.py` — deterministic pipeline, resumes from cache. Stages:
 build_universe → fetch → holdout → metrics → forward_returns → analysis → robustness →
-extended → report → paper_figures → paper/build_paper.py.
+extended → report → paper_figures.

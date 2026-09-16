@@ -4,8 +4,7 @@
 
 An independent empirical study of 1,127 TSX Venture Exchange (TSXV) common stocks, January 2016 – December 2024. Every research decision — the universe, the illiquidity measures, the time horizons, a 30% ticker holdout — was fixed *before* any result was computed. Full write-ups, all figures, and the complete reproducible pipeline are in this repository.
 
-**Read this first:** [`paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx`](paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx) — the plain-language edition, no finance background assumed, glossary included.
-For the formal version with statistical notation: [`paper/TSXV_Liquidity_Puzzle.docx`](paper/TSXV_Liquidity_Puzzle.docx).
+**Read this first:** [`paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx`](paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx) — no finance background assumed, glossary included.
 
 ---
 
@@ -18,10 +17,7 @@ Four different ways of measuring "how illiquid is this stock" — the Amihud (20
 ```
 tsxv-liquidity-study/
 ├── paper/
-│   ├── TSXV_Liquidity_Puzzle.docx              formal/technical edition
-│   ├── TSXV_Liquidity_Puzzle_PlainEnglish.docx plain-language edition (start here)
-│   ├── build_paper.py                          generates the technical docx from outputs/
-│   └── build_article.py                        generates the plain-English docx from outputs/
+│   └── TSXV_Liquidity_Puzzle_PlainEnglish.docx the paper (start here)
 ├── config.yaml            every locked parameter — window, horizons, winsorization, holdout seed
 ├── src/
 │   ├── build_universe.py  Stage 0 — TSXV issuer directory -> cleaned, sector-tagged universe
@@ -47,10 +43,9 @@ python3 -m venv .venv && ./.venv/bin/pip install -r requirements.txt
 ./.venv/bin/python run_all.py              # full pipeline, resumes from cache
 ./.venv/bin/python -m pytest tests/ -q     # estimator unit tests
 ./.venv/bin/python src/strategy_backtest.py  # the tradability check
-cd paper && ../.venv/bin/python build_paper.py && ../.venv/bin/python build_article.py
 ```
 
-Every parameter — the sample window, the illiquidity formulas, the holdout seed, the winsorization rule — lives in [`config.yaml`](config.yaml). Nothing downstream is hard-coded. Re-running from cached inputs reproduces every number in both papers exactly; both `build_*.py` scripts pull their numbers live from `outputs/*.csv`, so the papers can never drift from the code that produced them.
+Every parameter — the sample window, the illiquidity formulas, the holdout seed, the winsorization rule — lives in [`config.yaml`](config.yaml). Nothing downstream is hard-coded. Re-running from cached inputs reproduces every number in the paper exactly.
 
 **On the data**: this repository does **not** redistribute the raw TMX Money price/reference data (see [Data access](#data-access) below) — only the derived, aggregated results. `src/fetch.py` and `src/build_universe.py` document exactly which public endpoints were used and how to re-pull the same data yourself.
 
@@ -72,12 +67,13 @@ Every parameter — the sample window, the illiquidity formulas, the holdout see
 | `strategy/` | the cost- and turnover-aware tradability test — read this before treating anything above as a strategy |
 | `REPORT.md` | full result tables in one document |
 
-## Limitations (see the papers for the full discussion)
+## Limitations (see the paper for the full discussion)
 
 - **Survivorship bias, unresolved.** The universe is TSXV names still listed as of the data pull; every company that failed or delisted 2016–2024 is absent, and no free point-in-time constituent list exists. The direction of the bias is known (it inflates the activity-based finding); the magnitude is bounded, not eliminated.
 - **Company size is approximated** using current shares outstanding applied to all historical dates (historical share counts for TSXV names aren't freely available). Results are checked against price alone as an alternative size proxy.
 - **One exchange, one period.** No claim of generalization beyond TSXV, 2016–2024.
 - **Not a trading strategy**, and the repository includes the evidence for why: see `outputs/strategy/`.
+- **This is not investment advice.** Nothing in this repository or the accompanying paper constitutes a recommendation to buy or sell any security.
 
 ## Citation
 
@@ -87,8 +83,8 @@ If you reference this work:
 
 ## AI disclosure
 
-Claude (Anthropic) assisted with the data-collection and analysis code, statistical structure, and figure generation, and cleaned up language and grammar in both paper editions, which the author wrote in full. All research decisions — what to measure, how to define it, the interpretation of results, and the framing of the contribution — are the author's, who is responsible for the content in full.
+Claude (Anthropic) assisted with the data-collection and analysis code, statistical structure, and figure generation, and cleaned up language and grammar in the paper, which the author wrote in full. All research decisions — what to measure, how to define it, the interpretation of results, and the framing of the contribution — are the author's, who is responsible for the content in full.
 
 ## License
 
-Code in this repository is provided as-is for research transparency and reproducibility. No warranty. This is not investment advice, and nothing in this repository or the accompanying papers constitutes a recommendation to buy or sell any security.
+Code in this repository is provided as-is for research transparency and reproducibility. No warranty.

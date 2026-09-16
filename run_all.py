@@ -34,13 +34,8 @@ def main() -> None:
     args = ap.parse_args()
     for stage in STAGES[STAGES.index(args.start):]:
         run(stage, args.force)
-    # the paper itself (needs its own build step; harmless if figures missing)
-    try:
-        subprocess.run([PY, str(ROOT / "paper" / "build_paper.py")], check=True,
-                       cwd=ROOT / "paper")
-    except Exception as e:  # noqa: BLE001
-        print(f"(paper build skipped: {e})")
-    print("\nDONE. See outputs/REPORT.md, outputs/FINDINGS.md, paper/TSXV_Liquidity_Puzzle.docx")
+    print("\nDONE. See outputs/REPORT.md, outputs/FINDINGS.md, "
+          "paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx")
 
 
 if __name__ == "__main__":

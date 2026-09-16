@@ -64,7 +64,7 @@ Require enough real volume to build a position, and the "portfolio" collapses to
 The research finding is real. The trading strategy isn't — and I think showing that math is worth as much as the headline result.
 
 **10/**
-Full paper (plain-English edition + full technical version + all code) here: [link]
+Full paper + all code here: [link]
 
 ---
 
