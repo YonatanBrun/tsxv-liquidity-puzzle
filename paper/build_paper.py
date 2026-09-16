@@ -987,10 +987,10 @@ para(doc,
 h(doc, "Appendix D  AI disclosure", 1)
 para(doc,
  "Consistent with SSRN policy: Claude (Anthropic) assisted with the data-collection and "
- "analysis code, the statistical structure of the tests, the construction of the figures, "
- "and the drafting of this manuscript. All methodological decisions, parameter choices, the "
- "interpretation of the results, and the framing of the contribution are the author's. The "
- "author is responsible for the content in full.")
+ "analysis code, the statistical structure of the tests, and figure generation, and "
+ "assisted in writing this manuscript, which the author wrote. All methodological "
+ "decisions, parameter choices, the interpretation of the results, and the framing of the "
+ "contribution are the author's. The author is responsible for the content in full.")
 
 doc.save(str(DOCX))
 print("saved", DOCX)

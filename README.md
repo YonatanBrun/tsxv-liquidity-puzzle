@@ -87,7 +87,7 @@ If you reference this work:
 
 ## AI disclosure
 
-Claude (Anthropic) assisted with the data-collection and analysis code, statistical structure, figure generation, and drafting of both paper editions. All research decisions — what to measure, how to define it, the interpretation of results, and the framing of the contribution — are the author's, who is responsible for the content in full.
+Claude (Anthropic) assisted with the data-collection and analysis code, statistical structure, and figure generation, and assisted in writing both paper editions, which the author wrote. All research decisions — what to measure, how to define it, the interpretation of results, and the framing of the contribution — are the author's, who is responsible for the content in full.
 
 ## License
 
