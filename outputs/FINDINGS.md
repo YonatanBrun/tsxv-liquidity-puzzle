@@ -1,6 +1,6 @@
 # TSXV Liquidity Puzzle — findings (v2, run 2026-09-08)
 
-Full write-up: **`paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx`**.
+Full write-up: **`paper/Do Hard to Trade Stocks Actually Pay Off? - Yonatan Brunshtein.docx`**.
 This file is the executive summary.
 
 ## Setup

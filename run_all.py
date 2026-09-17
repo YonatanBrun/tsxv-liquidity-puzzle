@@ -35,7 +35,7 @@ def main() -> None:
     for stage in STAGES[STAGES.index(args.start):]:
         run(stage, args.force)
     print("\nDONE. See outputs/REPORT.md, outputs/FINDINGS.md, "
-          "paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx")
+          "paper/Do Hard to Trade Stocks Actually Pay Off? - Yonatan Brunshtein.docx")
 
 
 if __name__ == "__main__":

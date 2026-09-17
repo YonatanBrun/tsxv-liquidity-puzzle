@@ -7,3 +7,4 @@ data/adjusted/*.parquet
 data/benchmark/*.parquet
 # keep: universe csvs, holdout.json, outputs/
 !data/holdout.json
+.DS_Store

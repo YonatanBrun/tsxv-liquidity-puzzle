@@ -4,7 +4,7 @@
 
 An independent empirical study of 1,127 TSX Venture Exchange (TSXV) common stocks, January 2016 – December 2024. Every research decision — the universe, the illiquidity measures, the time horizons, a 30% ticker holdout — was fixed *before* any result was computed. Full write-ups, all figures, and the complete reproducible pipeline are in this repository.
 
-**Read this first:** [`paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx`](paper/TSXV_Liquidity_Puzzle_PlainEnglish.docx) — no finance background assumed, glossary included.
+**Read this first:** [`paper/Do Hard to Trade Stocks Actually Pay Off? - Yonatan Brunshtein.docx`](paper/Do Hard to Trade Stocks Actually Pay Off? - Yonatan Brunshtein.docx) — no finance background assumed, glossary included.
 
 ---
 
@@ -17,7 +17,7 @@ Four different ways of measuring "how illiquid is this stock" — the Amihud (20
 ```
 tsxv-liquidity-study/
 ├── paper/
-│   └── TSXV_Liquidity_Puzzle_PlainEnglish.docx the paper (start here)
+│   └── Do Hard to Trade Stocks Actually Pay Off? - Yonatan Brunshtein.docx  (the paper, start here)
 ├── config.yaml            every locked parameter — window, horizons, winsorization, holdout seed
 ├── src/
 │   ├── build_universe.py  Stage 0 — TSXV issuer directory -> cleaned, sector-tagged universe
