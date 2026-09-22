@@ -6,6 +6,8 @@ An independent empirical study of 1,127 TSX Venture Exchange (TSXV) common stock
 
 **Read this first:** [`paper/Do Hard to Trade Stocks Actually Pay Off? - Yonatan Brunshtein.docx`](paper/Do Hard to Trade Stocks Actually Pay Off? - Yonatan Brunshtein.docx) — no finance background assumed, glossary included.
 
+**Also posted on SSRN:** [doi.org/10.2139/ssrn.7483558](https://doi.org/10.2139/ssrn.7483558)
+
 ---
 
 ## The finding, in one paragraph
@@ -79,7 +81,7 @@ Every parameter — the sample window, the illiquidity formulas, the holdout see
 
 If you reference this work:
 
-> Brunshtein, Yonatan. "The TSX Venture Liquidity Puzzle: When Illiquidity Pays and When It Doesn't." Working paper, September 2026.
+> Brunshtein, Yonatan, Do Hard-to-Trade Stocks Actually Pay Off? (September 2026). Available at SSRN: https://ssrn.com/abstract=7483558 or https://doi.org/10.2139/ssrn.7483558
 
 ## AI disclosure
 
